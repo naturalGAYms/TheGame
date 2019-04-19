@@ -1,7 +1,7 @@
 import pygame
 
 
-def process_key_event(events, level):
+def process_key_event(level, events):
     for event in events:
         if event.key == pygame.K_SPACE:
             level.rocket.change_boost()
