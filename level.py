@@ -7,3 +7,9 @@ class Level:
         self.rocket = Rocket(*start_coords)
         self.planets = []
         self.hole = Hole(*finish_coords)
+
+    def on_tick(self):
+        # ToDo вызов событий
+        # ToDo вызов изменений логики
+        # ToDo вызов отрисовки
+        pass
