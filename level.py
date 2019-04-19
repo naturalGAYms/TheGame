@@ -10,6 +10,7 @@ class Level:
         self.rocket = Rocket(*start_coords)
         self.planets = []
         self.hole = Hole(*finish_coords)
+        self.is_finished: bool = False
 
     def on_tick(self, screen: pygame.display, events):
         process_key_event(self, events)
