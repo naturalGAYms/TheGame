@@ -1,5 +1,5 @@
-from game_object import GameObject
-from human import Human
+from game_objects.game_object import GameObject
+from game_objects.human import Human
 
 
 class Planet(GameObject):
