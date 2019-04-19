@@ -1,15 +1,18 @@
 from game_objects.game_object import GameObject
 from game_objects.human import Human
+from program_variables import G
+import math
 
 
 class Planet(GameObject):
     def __init__(self, x: int, y: int, radius: int):
         super().__init__(x, y)
         self.radius = radius
+        self.gravity = G * (math.pi * self.radius * self.radius)
 
     def get_gravity(self) -> float:
-        # TODO ĞºĞ°ĞºĞ°Ñ-Ñ‚Ğ¾ Ñ„Ğ¸Ğ·Ğ¸ĞºĞ°, ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ°Ñ Ğ·Ğ°Ğ²Ğ¸ÑĞ¸Ñ‚ Ğ¾Ñ‚ Ñ€Ğ°Ğ´Ğ¸ÑƒÑĞ° Ğ¿Ğ»Ğ°Ğ½ĞµÑ‚Ñ‹
-        pass
+        # TODO êàêàÿ-òî ôèçèêà, êîòîğàÿ çàâèñèò îò ğàäèóñà ïëàíåòû
+        return self.gravity
 
     def get_human(self) -> Human:
         pass
