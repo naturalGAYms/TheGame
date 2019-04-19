@@ -10,5 +10,7 @@ RED = (255, 0, 0)
 
 def draw_items(_level, screen: pygame.display):
     screen.fill(GREEN)
-    # level.Level.rocket
+    font = pygame.font.SysFont("serif", 25)
+    text = font.render("Game Over, click to restart", True, BLACK)
+    screen.blit(text, _level.rocket.get_coordinates())
     pygame.display.flip()

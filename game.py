@@ -5,7 +5,6 @@ GAME_NAME = 'Space ships'
 SCREEN_WIDTH = 700
 SCREEN_HEIGHT = 500
 
-
 class Game:
     def __init__(self):
         self.current_level: Level = Level((0,0), (100,100))
