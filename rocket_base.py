@@ -1,12 +1,11 @@
-class RocketBase:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+from game_object import GameObject
+
+
+class RocketBase(GameObject):
+    def __init__(self, x: int, y: int):
+        super().__init__(x, y)
         self.acceleration = 0.0
         self.angle = 0.0
-
-    def get_coordinates(self) -> (int, int):
-        pass
 
     def change_angle(self, angle: float):
         pass
