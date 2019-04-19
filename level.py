@@ -3,6 +3,7 @@ import pygame
 from game_objects.rocket import Rocket
 from game_objects.hole import Hole
 from process_events import process_key_event
+from drawing import draw_items
 
 
 class Level:
@@ -11,9 +12,9 @@ class Level:
         self.planets = []
         self.hole = Hole(*finish_coords)
         self.is_finished: bool = False
+        self.is_game_over = False
 
     def on_tick(self, screen: pygame.display, events):
         process_key_event(self, events)
-        # ToDo вызов изменений логики
+        draw_items(self, screen)
         # ToDo вызов отрисовки
-        pass
