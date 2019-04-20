@@ -13,6 +13,7 @@ class Level:
         self.planets = []
         self.hole = Hole(*finish_coords)
         self.is_game_over = False
+        self.is_completed = False
         self.rotating_left = False
         self.rotating_right = False
         self.boost_active = False

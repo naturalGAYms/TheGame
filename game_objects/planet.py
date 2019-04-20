@@ -1,5 +1,6 @@
 from game_objects.game_object import GameObject
 from game_objects.human import Human
+# from game_objects.rocket import Rocket
 from program_variables import G, mass_of_rocket
 import math
 
