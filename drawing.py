@@ -1,9 +1,6 @@
 import pygame
 from random import randint
 
-import level
-import random
-
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
@@ -23,6 +20,7 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p10.png')
                ]
 blackhole_image = pygame.image.load('sprites/blackhole.png')
+earth_image = pygame.transform.scale(pygame.image.load('sprites/Terran1.png'), (170, 170))
 asteroid_pic = pygame.transform.scale(pygame.image.load('sprites/asteroid.png'), (randint(40, 100), randint(40, 100)))
 human_pic = pygame.image.load('sprites/chelik.png')
 asteroid_pic_2 = pygame.transform.scale(pygame.image.load('sprites/as_2.png'), (randint(40, 100), randint(40, 100)))
@@ -34,7 +32,10 @@ def draw_items(_level, surface: pygame.display):
     label = pygame.font.SysFont("monospace", 30).render(str(_level.score), 1, (255, 255, 0))
     surface.blit(label, (surface.get_width() - 60, 0))
     if _level.score == 0:
-        surface.blit(blackhole_image, _level.hole.get_coordinates())
+        if _level.is_last:
+            surface.blit(earth_image, _level.hole.get_coordinates())
+        else:
+            surface.blit(blackhole_image, _level.hole.get_coordinates())
     SingleColorBar(surface, RED, 0, 0, _level.rocket.fuel)
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
