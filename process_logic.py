@@ -10,7 +10,7 @@ def check_level_completion(level):
     hole_cords = level.hole.get_coordinates()
     delta = abs(rocket_cords[0] - hole_cords[0] - level.hole.shift_to_center) + abs(
         rocket_cords[1] - hole_cords[1] - level.hole.shift_to_center)
-    if delta < 20:
+    if delta < 80:
         return True
     return False
 
