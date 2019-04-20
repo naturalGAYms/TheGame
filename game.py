@@ -24,6 +24,8 @@ class Game:
         while True:
             self.current_level.on_tick(self.surface, pygame.event.get())
             self.clock.tick(60)
+            if self.current_level.is_completed:
+                print(1)
             if self.current_level.is_game_over or self.current_level.is_completed:
                 break
 

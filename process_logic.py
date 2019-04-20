@@ -28,7 +28,7 @@ def run_logic(level):
         level.rocket.enable_boost()
 
     if check_level_completion(level):
-        level.is_finished = True
+        level.is_completed = True
 
 
 def check_impact(x1, y1, x2, y2):
