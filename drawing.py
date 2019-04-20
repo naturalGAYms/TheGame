@@ -38,9 +38,10 @@ def draw_items(_level, surface: pygame.display):
         scaled_size = get_scaled_size(planet_rect, planet_size_ratio)
         new_pic = pygame.transform.scale(planet_pic, scaled_size)
         planet_rect.move_ip(*planet.get_coordinates())
-        surface.blit(new_pic, planet_rect)
+        draw_at_center(surface, new_pic, planet_rect)
     for asteroid in _level.asteroids:
-        surface.blit(asteroid_pic, asteroid.get_coordinates())
+        asteroid_rect = pygame.Rect(0, 0, *asteroid.get_coordinates())
+        draw_at_center(surface, asteroid_pic, asteroid_rect)
     surface.blit(*rocket_image_with_angle)
     SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
     pygame.display.flip()
@@ -63,3 +64,7 @@ def SingleColorBar(surface, color, x, y, value):
     for hp in range(value):
         pygame.draw.rect(surface, color, (x+xx, y, 1, 32), 0)
         xx += value/1001
+
+
+def draw_at_center(surface, picture, rect):
+    surface.blit(picture, (rect.width - picture.get_width() // 2, rect.height - picture.get_height() // 2))
