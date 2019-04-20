@@ -36,7 +36,7 @@ def run_logic(level):
         level.rocket.collision_with_planet(planet)
 
     if check_level_completion(level):
-        sound1 = pygame.mixer.Sound('sprites/hum.wav')
+        sound1 = pygame.mixer.Sound('sprites/hole.wav')
         sound1.play()
         level.is_completed = True
 
