@@ -8,7 +8,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
-background_image = pygame.image.load('sprites/background.jpg')
+background_image = pygame.image.load('sprites/background0.jpg')
 rocket_image = pygame.image.load('sprites/spaceship0.png')
 rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p2.png'),
@@ -19,11 +19,12 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p7.png'),
                pygame.image.load('sprites/p8.png'),
                pygame.image.load('sprites/p9.png'),
-               pygame.image.load('sprites/p10.png')]
-
+               pygame.image.load('sprites/p10.png')
+blackhole_image = pygame.image.load('sprites/blackhole.png')
 
 def draw_items(_level, surface: pygame.display):
     surface.blit(background_image, (0, 0))
+    surface.blit(blackhole_image, _level.hole.get_coordinates())
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
     rocket_image_with_angle = rot_center(rocket_image, rocket_angle, rocket_coords)
