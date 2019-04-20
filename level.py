@@ -25,3 +25,7 @@ class Level:
         process_key_event(self, events)
         run_logic(self)
         draw_items(self, surface)
+        if not self.rocket.alive:
+            expl = pygame.image.load('sprites/explosion.png')
+            surface.blit(pygame.transform.scale(expl, (70, 70)), (self.rocket.x - 35, self.rocket.y - 35))
+            pygame.display.flip()
