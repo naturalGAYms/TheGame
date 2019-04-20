@@ -9,7 +9,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
-background_image = pygame.image.load('sprites/background0.jpg')
+background_image = pygame.image.load('sprites/Starset.png')
 rocket_image = pygame.image.load('sprites/spaceship0.png')
 rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p2.png'),
