@@ -21,6 +21,10 @@ class Planet(GameObject):
         f = (self.gravity * mass_of_rocket) / pow(self.get_distance_to_rocket(rocket), 2)
         cosx = (rocket.get_coordinates()[0] - self.get_coordinates()[0]) / self.get_distance_to_rocket(rocket)
         siny = (rocket.get_coordinates()[1] - self.get_coordinates()[1]) / self.get_distance_to_rocket(rocket)
+        if abs(rocket.x - self.x - self.radius / 2) < self.radius / 2 + 40 and \
+                abs(rocket.y - self.y - self.radius / 2) < self.radius / 2 + 40:
+            return 0, 0
+
         return -f * cosx, -f * siny  # вот здесь с минусом
 
     def get_human(self) -> Human:
