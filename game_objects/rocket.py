@@ -1,6 +1,6 @@
 from game_objects.game_object import GameObject
 from game_objects.planet import Planet
-from program_variables import boost_power
+from program_variables import boost_power, mass_of_rocket
 import math
 
 
@@ -11,6 +11,7 @@ class Rocket(GameObject):
         self.angle = 0.0
         self.fuel = 100
         self.boost_power = boost_power
+        self.mass = mass_of_rocket
         self.vx = 0
         self.vy = 0
 
