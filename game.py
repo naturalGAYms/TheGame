@@ -15,47 +15,59 @@ class Game:
             Level((30, 30), (300, 400),
                   [
                       Planet(200, 200, 60, Human(100, 100)),
-                      Planet(1000, 300, 50, Human(100, 100)),
-                      Planet(500, 600, 35, Human(100, 100)), ],
+                      Planet(1000, 304, 50, Human(100, 100)),
+                      Planet(500, 601, 35, Human(100, 100)),
+                      Planet(407, 400, 35, Human(100, 100)),
+                      Planet(500, 177, 25, Human(100, 100)),
+                      Planet(100, 302, 17, Human(100, 100))],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(700, 350),
+                      Asteroid(110, 773)
                   ]),
-            Level((400, 40), (600, 600),
+            Level((400, 40), (600, 450),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(347, 136, 80, Human(100, 100)),
+                      Planet(736, 309, 100, Human(100, 100)),
+                      Planet(516, 608, 70, Human(100, 100)),
+                      Planet(100, 100, 65, Human(100, 100)),
+                      Planet(994, 490, 100, Human(100, 100)),
+                      Planet(184, 443, 100, Human(100, 100)),
+                      Planet(516, 608, 70, Human(100, 100))
+                  ],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
-            Level((100, 400), (1000, 400),
+            Level((100, 400), (650, 400),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(428, 951, 59, Human(100, 100)),
+                      Planet(99, 110, 37, Human(100, 100)),
+                      Planet(506, 601, 70, Human(100, 100)),
+                      Planet(600, 101, 87, Human(100, 100)),
+                      Planet(736, 309, 100, Human(100, 100))],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
-            Level((800, 40), (400, 100),
+            Level((800, 40), (400, 200),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
-                  [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100)
-                  ]),
-            Level((10, 40), (1000, 300),
-                  [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(100, 359, 120, Human(100, 100)),
+                      Planet(1000, 305, 100, Human(100, 100)),
+                      Planet(503, 600, 70, Human(100, 100)),
+                      Planet(570, 312, 22, Human(100, 100)),
+                      Planet(503, 861, 35, Human(100, 100)),
+                  ],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
         ]
         self.index = 0
@@ -65,6 +77,7 @@ class Game:
         self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.FULLSCREEN)
         # self.screen = pygame.display.set_mode(size)
         self.clock = pygame.time.Clock()
+        self.delay = 0
 
     def get_next_level(self):
         self.current_level = self.levels[self.index]
@@ -77,15 +90,20 @@ class Game:
 
     def run(self):
         self.get_next_level()
+        img = None
         while True:
-            self.current_level.on_tick(self.surface, pygame.event.get())
             self.clock.tick(60)
+            if self.delay > 0:
+                self.surface.blit(pygame.transform.scale(img, (SCREEN_WIDTH, SCREEN_HEIGHT)), (0, 0))
+                self.delay -= 1
+                pygame.display.flip()
+                continue
+            self.current_level.on_tick(self.surface, pygame.event.get())
             if self.current_level.is_completed:
+                img = pygame.image.load(f'sprites/s/{self.index}.png')
+                self.delay = 7 * 60
+                print(self.delay)
                 self.get_next_level()
-            # rocket_cords = self.current_level.rocket.get_coordinates()
-            # if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
-            #     1] > SCREEN_HEIGHT:
-            #     break
             if self.current_level.is_game_over or self.index > 4:
                 break
 
