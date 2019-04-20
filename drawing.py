@@ -29,16 +29,16 @@ asteroid_pic = pygame.image.load('sprites/asteroid.png')
 def draw_items(_level, surface: pygame.display):
     surface.blit(background_image, (0, 0))
     surface.blit(blackhole_image, _level.hole.get_coordinates())
-    SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
+    SingleColorBar(surface, RED, 0, 0, _level.rocket.fuel)
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
     rocket_image_with_angle = rot_center(rocket_image, rocket_angle, rocket_coords)
 
     for planet in _level.planets:
-        planet_pic = rocket_pics[planet.x % len(rocket_pics)]
+        planet_pic = rocket_pics[(planet.x + planet.y) % 10]
         new_pic = pygame.transform.scale(planet_pic, (planet.radius * 2, planet.radius * 2))
         surface.blit(new_pic, (planet.x - planet.radius, planet.y - planet.radius))
-        pygame.draw.circle(surface, 255, planet.get_coordinates(), planet.radius, 12)
+        # pygame.draw.circle(surface, 255, planet.get_coordinates(), planet.radius, 12)
 
         # draw_at_center(surface, new_pic, planet_rect)
     for asteroid in _level.asteroids:
