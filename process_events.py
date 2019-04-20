@@ -9,6 +9,6 @@ def process_key_event(level, events):
         if event.key == pygame.K_SPACE:
             level.rocket.enable_boost()
         if event.key == pygame.K_a:
-            level.rocket.change_angle(angle_delta)
+            level.rocket.change_angle(-angle_delta)
         if event.key == pygame.K_d:
             level.rocket.change_angle(angle_delta)

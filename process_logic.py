@@ -9,6 +9,7 @@ def run_logic(level):
                         *planet.get_coordinates()):
             level.rocket.take_human(planet.get_human())
             break
+    level.rocket.move()
     if check_impact(*level.rocket.get_coordinates(), *level.hole.get_coordinates()):
         level.is_finished = True
 
