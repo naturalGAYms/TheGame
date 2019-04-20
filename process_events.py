@@ -9,12 +9,14 @@ def process_key_event(level, events):
             return
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                level.rocket.enable_boost()
+                level.boost_active = True
             if event.key == pygame.K_a:
                 level.rotating_left = True
             if event.key == pygame.K_d:
                 level.rotating_right = True
         if event.type == pygame.KEYUP:
+            if event.key == pygame.K_SPACE:
+                level.boost_active = False
             if event.key == pygame.K_a:
                 level.rotating_left = False
             if event.key == pygame.K_d:

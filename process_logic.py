@@ -15,6 +15,8 @@ def run_logic(level):
         level.rocket.change_angle(-angle_delta)
     if level.rotating_right:
         level.rocket.change_angle(angle_delta)
+    if level.boost_active:
+        level.rocket.enable_boost()
     if check_impact(*level.rocket.get_coordinates(), *level.hole.get_coordinates()):
         level.is_finished = True
 
