@@ -65,6 +65,7 @@ class Game:
         self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.FULLSCREEN)
         # self.screen = pygame.display.set_mode(size)
         self.clock = pygame.time.Clock()
+        self.delay = 0
 
     def get_next_level(self):
         self.current_level = self.levels[self.index]
@@ -77,15 +78,20 @@ class Game:
 
     def run(self):
         self.get_next_level()
+        img = None
         while True:
-            self.current_level.on_tick(self.surface, pygame.event.get())
             self.clock.tick(60)
+            if self.delay > 0:
+                self.surface.blit(pygame.transform.scale(img, (SCREEN_WIDTH, SCREEN_HEIGHT)), (0, 0))
+                self.delay -= 1
+                pygame.display.flip()
+                continue
+            self.current_level.on_tick(self.surface, pygame.event.get())
             if self.current_level.is_completed:
+                img = pygame.image.load(f'sprites/s/{self.index}.png')
+                self.delay = 7 * 60
+                print(self.delay)
                 self.get_next_level()
-            # rocket_cords = self.current_level.rocket.get_coordinates()
-            # if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
-            #     1] > SCREEN_HEIGHT:
-            #     break
             if self.current_level.is_game_over or self.index > 4:
                 break
 
