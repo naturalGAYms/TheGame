@@ -1,6 +1,7 @@
 import pygame
 from program_variables import boost_power, G, angle_delta
 
+
 def process_key_event(level, events):
     for event in filter(lambda x: x.type == pygame.KEYDOWN or x.type == pygame.QUIT, events):
         if event.type == pygame.QUIT:
