@@ -5,8 +5,8 @@ from game_objects.human import Human
 from game_objects.asteroid import Asteroid
 
 GAME_NAME = 'Space ships'
-SCREEN_WIDTH = 1500
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 650
 
 
 class Game:
@@ -62,7 +62,7 @@ class Game:
         self.current_level: Level = Level((0, 0), (100, 100), [], [])
         self.screen: pygame.display = None
         # size = [SCREEN_WIDTH, SCREEN_HEIGHT]
-        self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.FULLSCREEN)
         # self.screen = pygame.display.set_mode(size)
         self.clock = pygame.time.Clock()
 
