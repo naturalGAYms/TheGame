@@ -3,7 +3,7 @@ import sys
 from program_variables import boost_power, G, angle_delta
 
 
-def process_key_event(level, events):
+def process_key_event(level, events, game):
     for event in filter(lambda x: x.type == pygame.KEYDOWN or pygame.QUIT or pygame.KEYUP, events):
         if event.type == pygame.QUIT:
             level.is_game_over = True
@@ -25,6 +25,8 @@ def process_key_event(level, events):
                 level.rotating_right = True
             if event.key == pygame.K_RIGHT:
                 level.rotating_right = True
+            if event.key == pygame.K_RSHIFT:
+                game.restart_level()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
                 level.boost_active = False

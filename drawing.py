@@ -9,7 +9,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
-background_image = pygame.image.load('sprites/Starset.png')
+background_image = pygame.image.load('sprites/back.png')
 rocket_image = pygame.image.load('sprites/spaceship0.png')
 rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p2.png'),
@@ -61,7 +61,7 @@ def draw_items(_level, surface: pygame.display):
             draw_asteroid_at_center(surface, asteroid_pic, asteroid_rect)
         if asteroid.id == 2:
             draw_asteroid_at_center(surface, asteroid_pic_2, asteroid_rect)
-        if asteroid.id == 2:
+        if asteroid.id == 3:
             draw_asteroid_at_center(surface, asteroid_pic_3, asteroid_rect)
 
     surface.blit(*rocket_image_with_angle)

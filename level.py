@@ -1,4 +1,5 @@
 import pygame
+import time
 
 from game_objects.rocket import Rocket
 from game_objects.hole import Hole
@@ -23,11 +24,14 @@ class Level:
         self.boost_active = False
         self.score = len(planets)
 
-    def on_tick(self, surface: pygame.display, events):
-        process_key_event(self, events)
+    def on_tick(self, surface: pygame.display, events, game):
+        process_key_event(self, events, game)
         run_logic(self)
         draw_items(self, surface)
         if not self.rocket.alive:
             expl = pygame.image.load('sprites/explosion.png')
             surface.blit(pygame.transform.scale(expl, (70, 70)), (self.rocket.x - 35, self.rocket.y - 35))
             pygame.display.flip()
+
+
+

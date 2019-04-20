@@ -1,3 +1,4 @@
+import math
 from game_objects.game_object import GameObject
 from game_objects.planet import Planet
 from program_variables import boost_power, mass_of_rocket
@@ -93,4 +94,4 @@ class Rocket(GameObject):
         cosx = (self.get_coordinates()[0] - planet.get_coordinates()[0]) / dist
         siny = (self.get_coordinates()[1] - planet.get_coordinates()[1]) / dist
         arctan = math.atan(siny / cosx)
-        return abs(self.angle - arctan) < 0.8
+        return abs(self.angle + math.pi - arctan) < 0.8
