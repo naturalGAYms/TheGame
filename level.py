@@ -16,6 +16,7 @@ class Level:
 
     def on_tick(self, screen: pygame.display, events):
         process_key_event(self, events)
+        self.rocket.move()
         run_logic(self)
         draw_items(self, screen)
         # ToDo вызов отрисовки
