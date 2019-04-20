@@ -2,7 +2,7 @@ import pygame
 import math
 from program_variables import boost_power, G, angle_delta
 
-IMPACT_RADIUS = 10
+IMPACT_RADIUS = 0
 
 
 def check_level_completion(level):
