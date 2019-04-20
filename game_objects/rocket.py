@@ -16,6 +16,7 @@ class Rocket(GameObject):
         self.mass = mass_of_rocket
         self.vx = 0
         self.vy = 0
+        self.fuel = 1010
 
     def change_angle(self, delt_angle: float):
         self.angle += delt_angle
@@ -26,6 +27,9 @@ class Rocket(GameObject):
         для того чтобы выбраться за пределы радиуса обнуления вектора движения
         :return:
         """
+        self.fuel -= 1
+        if self.fuel < 1:
+            return
         self.vx += self.boost_power * math.cos(self.angle)
         self.vy += self.boost_power * math.sin(self.angle)
         if self.on_planet:

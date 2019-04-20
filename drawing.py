@@ -9,7 +9,7 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
 background_image = pygame.image.load('sprites/background0.jpg')
-rocket_image = pygame.image.load('sprites/spaceship0.png')
+rocket_image = pygame.image.load('sprites/ricardorocket.png')
 rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p2.png'),
                pygame.image.load('sprites/p3.png'),
@@ -39,6 +39,7 @@ def draw_items(_level, surface: pygame.display):
         planet_rect.move_ip(*planet.get_coordinates())
         surface.blit(new_pic, planet_rect)
     surface.blit(*rocket_image_with_angle)
+    SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
     pygame.display.flip()
 
 
@@ -52,3 +53,10 @@ def rot_center(image, angle, rocket_coords):
 
 def get_scaled_size(rect, ratio):
     return int(rect.height * ratio), int(rect.width * ratio)
+
+
+def SingleColorBar(surface, color, x, y, value):
+    xx=0
+    for hp in range(value):
+        pygame.draw.rect(surface, color, (x+xx, y, 1, 32), 0)
+        xx += value/1001

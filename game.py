@@ -4,8 +4,8 @@ from game_objects.planet import Planet
 from game_objects.human import Human
 
 GAME_NAME = 'Space ships'
-SCREEN_WIDTH = 1500
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 650
 
 
 class Game:
@@ -16,6 +16,11 @@ class Game:
                 Planet(1000, 300, 200, Human(100, 100)),
                 Planet(500, 600, 100, Human(100, 100)),]
                   ),
+            Level((400, 200), (1200, 400), [
+                Planet(100, 100, 50, Human(100, 100)),
+                Planet(1000, 300, 200, Human(100, 100)),
+                Planet(500, 600, 100, Human(100, 100)), ]
+                  ),
             Level((400, 40), (600, 600), []),
             Level((100, 400), (1000, 400), []),
             Level((800, 40), (400, 100), []),
@@ -25,7 +30,7 @@ class Game:
         self.current_level: Level = Level((0, 0), (100, 100), [])
         self.screen: pygame.display = None
         # size = [SCREEN_WIDTH, SCREEN_HEIGHT]
-        self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.FULLSCREEN)
         # self.screen = pygame.display.set_mode(size)
         self.clock = pygame.time.Clock()
 
@@ -46,9 +51,9 @@ class Game:
             if self.current_level.is_completed:
                 self.get_next_level()
             rocket_cords = self.current_level.rocket.get_coordinates()
-            if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
-                1] > SCREEN_HEIGHT:
-                break
+            #if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
+             #   1] > SCREEN_HEIGHT:
+              #  break
             if self.current_level.is_game_over or self.index > 4:
                 break
 
