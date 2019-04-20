@@ -30,3 +30,11 @@ class Planet(GameObject):
         rocket = rocket.get_coordinates()
         return math.sqrt((planet[0] - rocket[0]) * (planet[0] - rocket[0]) +
                          (planet[1] - rocket[1]) * (planet[1] - rocket[1]))
+
+    def pickup_human(self, rocket):
+        human = self.human.get_coordinates()
+        rocket = rocket.get_coordinates()
+        distance = math.sqrt((human[0] - rocket[0]) * (human[0] - rocket[0]) +
+                         (human[1] - rocket[1]) * (human[1] - rocket[1]))
+        if distance < 5:
+            self.human = False
