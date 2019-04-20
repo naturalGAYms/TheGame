@@ -261,8 +261,8 @@ class Menu(object):
         self._actual._size += 1
         if self._actual._size > 1:
             dy = -self._actual._fsize / 2 - self._actual._opt_dy / 2
-            self._actual._opt_posy += dy + 60
-            self._actual._opt_posx += 100
+            self._actual._opt_posy += dy + 30
+            self._actual._opt_posx += 60
 
     def add_selector(self, title, values, onchange, onreturn,
                      **kwargs):

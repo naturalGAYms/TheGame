@@ -40,7 +40,7 @@ PYGAME_MENU_RESET = PymenuAction(4)  # Menu reset
 
 # Other
 PYGAMEMENU_PYMENUACTION = "<class 'pygameMenu.locals._PymenuAction'>"
-PYGAMEMENU_TEXT_NEWLINE = ''  # Text newline on TextMenu object
+PYGAMEMENU_TEXT_NEWLINE = '\n'  # Text newline on TextMenu object
 PYGAMEMENU_TYPE_SELECTOR = PymenuAction(2)  # Type of selector
 
 # Joypad
