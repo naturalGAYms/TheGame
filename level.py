@@ -8,9 +8,9 @@ from process_logic import run_logic
 
 
 class Level:
-    def __init__(self, start_coords: (int, int), finish_coords: (int, int)):
+    def __init__(self, start_coords: (int, int), finish_coords: (int, int), planets):
         self.rocket = Rocket(*start_coords)
-        self.planets = []
+        self.planets = planets
         self.hole = Hole(*finish_coords)
         self.is_game_over = False
         self.is_completed = False
