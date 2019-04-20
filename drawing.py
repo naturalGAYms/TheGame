@@ -23,10 +23,10 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p10.png')
                ]
 blackhole_image = pygame.image.load('sprites/blackhole.png')
-asteroid_pic = pygame.image.load('sprites/asteroid.png')
+asteroid_pic = pygame.transform.scale(pygame.image.load('sprites/asteroid.png'), (randint(40, 100), randint(40, 100)))
 human_pic = pygame.image.load('sprites/chelik.png')
-asteroid_pic_2 = pygame.image.load('sprites/as_2.png')
-asteroid_pic_3 = pygame.image.load('sprites/as_3.png')
+asteroid_pic_2 = pygame.transform.scale(pygame.image.load('sprites/as_2.png'), (randint(40, 100), randint(40, 100)))
+asteroid_pic_3 = pygame.transform.scale(pygame.image.load('sprites/as_3.png'), (randint(40, 100), randint(40, 100)))
 
 
 def draw_items(_level, surface: pygame.display):
