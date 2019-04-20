@@ -1,4 +1,5 @@
 import pygame
+import sys
 from program_variables import boost_power, G, angle_delta
 
 
@@ -8,6 +9,8 @@ def process_key_event(level, events):
             level.is_game_over = True
             return
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                sys.exit()
             if event.key == pygame.K_SPACE:
                 level.boost_active = True
             if event.key == pygame.K_a:
