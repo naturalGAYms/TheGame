@@ -11,7 +11,6 @@ class Planet(GameObject):
         self.gravity = G * (math.pi * self.radius * self.radius)
 
     def get_gravity(self) -> float:
-        # TODO какая-то физика, которая зависит от радиуса планеты
         return self.gravity
 
     def get_human(self) -> Human:
