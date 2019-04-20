@@ -1,6 +1,5 @@
 from level import Level
 import pygame
-import sys
 from game_objects.planet import Planet
 from game_objects.human import Human
 from game_objects.asteroid import Asteroid
