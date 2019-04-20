@@ -22,10 +22,10 @@ class Game:
                       Planet(500, 177, 25, Human(100, 100)),
                       Planet(100, 302, 17, Human(100, 100))],
                   [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100),
-                      Asteroid(700, 350),
-                      Asteroid(110, 773)
+                      Asteroid(800, 400,1),
+                      Asteroid(200, 100,2),
+                      Asteroid(700, 350,3),
+                      Asteroid(110, 773,1)
                   ]),
             Level((400, 40), (600, 450),
                   [
@@ -38,10 +38,10 @@ class Game:
                       Planet(516, 608, 70, Human(100, 100))
                   ],
                   [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100),
-                      Asteroid(213, 123),
-                      Asteroid(132, 321)
+                      Asteroid(800, 400,1),
+                      Asteroid(200, 100,2),
+                      Asteroid(213, 123,3),
+                      Asteroid(132, 321,1)
                   ]),
             Level((100, 400), (650, 400),
                   [
@@ -51,10 +51,10 @@ class Game:
                       Planet(600, 101, 87, Human(100, 100)),
                       Planet(736, 309, 100, Human(100, 100))],
                   [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100),
-                      Asteroid(213, 123),
-                      Asteroid(132, 321)
+                      Asteroid(800, 400,1),
+                      Asteroid(200, 100,2),
+                      Asteroid(213, 123,3),
+                      Asteroid(132, 321,1)
                   ]),
             Level((800, 40), (400, 200),
                   [
@@ -65,10 +65,10 @@ class Game:
                       Planet(503, 861, 35, Human(100, 100)),
                   ],
                   [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100),
-                      Asteroid(213, 123),
-                      Asteroid(132, 321)
+                      Asteroid(800, 400,1),
+                      Asteroid(200, 100,2),
+                      Asteroid(213, 123,3),
+                      Asteroid(132, 321,1)
                   ]),
         ]
         self.index = 0
