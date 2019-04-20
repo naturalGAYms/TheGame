@@ -12,8 +12,16 @@ class Planet(GameObject):
         self.human = human
         self.gravity = G * (math.pi * self.radius * self.radius)
 
-    def get_gravity(self, rocket) -> float:
-        return (self.gravity * mass_of_rocket) / pow(self.get_distance_to_rocket(rocket), 2)
+    def get_gravity(self, rocket):
+        """
+        Она дает обратный вектор, нужно возвращать с минусом
+        :param rocket:
+        :return:
+        """
+        f = (self.gravity * mass_of_rocket) / pow(self.get_distance_to_rocket(rocket), 2)
+        cosx = (rocket.get_coordinates()[0] - self.get_coordinates()[0]) / self.get_distance_to_rocket(rocket)
+        siny = (rocket.get_coordinates()[1] - self.get_coordinates()[1]) / self.get_distance_to_rocket(rocket)
+        return -f * cosx, -f * siny  # вот здесь с минусом
 
     def get_human(self) -> Human:
         return self.human
