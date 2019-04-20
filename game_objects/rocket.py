@@ -21,6 +21,11 @@ class Rocket(GameObject):
         self.angle += delt_angle
 
     def enable_boost(self):
+        """
+        Если корабль на планете то ускорение увеличено
+        для того чтобы выбраться за пределы радиуса обнуления вектора движения
+        :return:
+        """
         self.vx += self.boost_power * math.cos(self.angle)
         self.vy += self.boost_power * math.sin(self.angle)
         if self.on_planet:
@@ -38,6 +43,11 @@ class Rocket(GameObject):
         self.y += self.vy
 
     def landing_on_planet(self, closest_planet: Planet):
+        """
+        Если ракета достаточно близко то вектор движения обнуляется
+        :param closest_planet:
+        :return:
+        """
         if closest_planet.get_distance_to_rocket(self) < closest_planet.radius + 1 and not self.on_planet:
             self.vx = 0
             self.vy = 0
