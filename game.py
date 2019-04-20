@@ -1,9 +1,9 @@
 from level import Level
 import pygame
-import sys
 from game_objects.planet import Planet
 from game_objects.human import Human
 from game_objects.asteroid import Asteroid
+import time
 
 GAME_NAME = 'Space ships'
 SCREEN_WIDTH = 1280
@@ -15,12 +15,10 @@ class Game:
         self.levels = [
             Level((30, 30), (300, 400),
                   [
-                      Planet(370, 200, 60, Human(100, 100)),
-                      Planet(1000, 304, 50, Human(100, 100)),
-                      Planet(500, 601, 35, Human(100, 100)),
-                      Planet(407, 400, 35, Human(100, 100)),
-                      Planet(500, 177, 25, Human(100, 100)),
-                      Planet(100, 302, 17, Human(100, 100))],
+                      Planet(200, 200, 60, Human(2, 200, 200, 60)),
+                      Planet(1000, 304, 50, Human(0.8, 1000, 304, 50)),
+                      Planet(500, 601, 35, Human(1.3, 500, 601, 35)),
+                  ],
                   [
                       Asteroid(800, 400),
                       Asteroid(200, 100),
@@ -29,13 +27,9 @@ class Game:
                   ]),
             Level((400, 40), (600, 450),
                   [
-                      Planet(500, 136, 37, Human(100, 100)),
-                      Planet(736, 309, 15, Human(100, 100)),
-                      Planet(516, 608, 20, Human(100, 100)),
-                      Planet(70, 70, 65, Human(100, 100)),
-                      Planet(994, 490, 100, Human(100, 100)),
-                      Planet(184, 443, 100, Human(100, 100)),
-                      Planet(516, 608, 70, Human(100, 100))
+                      Planet(736, 309, 100, Human(0.4, 736, 309, 100)),
+                      Planet(516, 608, 70, Human(2.3, 516, 608, 70)),
+                      Planet(100, 100, 65, Human(3.2, 100, 100, 65)),
                   ],
                   [
                       Asteroid(800, 400),
@@ -45,11 +39,9 @@ class Game:
                   ]),
             Level((100, 400), (650, 400),
                   [
-                      Planet(428, 951, 59, Human(100, 100)),
-                      Planet(99, 110, 37, Human(100, 100)),
-                      Planet(506, 601, 70, Human(100, 100)),
-                      Planet(600, 101, 87, Human(100, 100)),
-                      Planet(736, 309, 100, Human(100, 100))],
+                      Planet(407, 400, 35, Human(0.1, 407, 400, 35)),
+                      Planet(500, 177, 25, Human(3, 500, 177, 25)),
+                      Planet(100, 302, 17, Human(2.4, 100, 302, 17))],
                   [
                       Asteroid(800, 400),
                       Asteroid(200, 100),
@@ -58,11 +50,9 @@ class Game:
                   ]),
             Level((800, 40), (400, 200),
                   [
-                      Planet(100, 359, 65, Human(100, 100)),
-                      Planet(1000, 305, 83, Human(100, 100)),
-                      Planet(503, 600, 70, Human(100, 100)),
-                      Planet(570, 312, 22, Human(100, 100)),
-                      Planet(503, 861, 35, Human(100, 100)),
+                      Planet(100, 100, 65, Human(3.2, 100, 100, 65)),
+                      Planet(1000, 305, 100, Human(2.6, 1000, 305, 100)),
+                      Planet(503, 600, 70, Human(3, 503, 600, 70)),
                   ],
                   [
                       Asteroid(800, 400),
@@ -84,7 +74,10 @@ class Game:
         try:
             self.current_level = self.levels[self.index]
         except:
-            sys.exit(0)
+            _img = pygame.image.load(f'sprites/en.jpg')
+            self.surface.blit(pygame.transform.scale(_img, (SCREEN_WIDTH, SCREEN_HEIGHT)), (0, 0))
+            pygame.display.flip()
+            time.sleep(6)
         self.index += 1
 
     def init_game(self):
