@@ -4,10 +4,12 @@ from program_variables import boost_power, G, angle_delta
 
 IMPACT_RADIUS = 10
 
+
 def check_level_completion(level):
     rocket_cords = level.rocket.get_coordinates()
     hole_cords = level.hole.get_coordinates()
-    delta = abs(rocket_cords[0] - hole_cords[0]) + abs(rocket_cords[1] - hole_cords[1])
+    delta = abs(rocket_cords[0] - hole_cords[0] - level.hole.shift_to_center) + abs(
+        rocket_cords[1] - hole_cords[1] - level.hole.shift_to_center)
     if delta < 20:
         return True
     return False
