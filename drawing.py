@@ -22,6 +22,7 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p10.png')
                ]
 blackhole_image = pygame.image.load('sprites/blackhole.png')
+asteroid_pic = pygame.image.load('sprites/asteroid.png')
 
 
 def draw_items(_level, surface: pygame.display):
@@ -38,6 +39,8 @@ def draw_items(_level, surface: pygame.display):
         new_pic = pygame.transform.scale(planet_pic, scaled_size)
         planet_rect.move_ip(*planet.get_coordinates())
         surface.blit(new_pic, planet_rect)
+    for asteroid in _level.asteroids:
+        surface.blit(asteroid_pic, asteroid.get_coordinates())
     surface.blit(*rocket_image_with_angle)
     SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
     pygame.display.flip()

@@ -19,11 +19,13 @@ def run_logic(level):
     for planet in level.planets:
         if check_impact(*level.rocket.get_coordinates(),
                         *planet.get_coordinates()):
-            # level.rocket.take_human(planet.get_human())
+            # level.rocket.take_human(planet.get_human())aa
             break
         level.rocket.vx += planet.get_gravity(level.rocket)[0] / 100
         level.rocket.vy += planet.get_gravity(level.rocket)[1] / 100
     level.rocket.move()
+    for asteroid in level.asteroids:
+        asteroid.on_tick()
     if level.rotating_left:
         level.rocket.change_angle(-angle_delta)
     if level.rotating_right:
