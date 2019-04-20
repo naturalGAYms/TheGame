@@ -39,7 +39,7 @@ def draw_items(_level, surface: pygame.display):
     pygame.display.flip()
 
 
-def rot_center(image, angle, rocket_coords):s
+def rot_center(image, angle, rocket_coords):
     rot_image = pygame.transform.rotate(image, angle)
     rect = image.get_rect()
     rect.move_ip(*rocket_coords)
