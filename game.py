@@ -39,6 +39,9 @@ class Game:
             self.clock.tick(60)
             if self.current_level.is_completed:
                 self.get_next_level()
+            rocket_cords = self.current_level.rocket.get_coordinates()
+            if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[1] > SCREEN_HEIGHT:
+                break
             if self.current_level.is_game_over or self.index > 4:
                 break
 
