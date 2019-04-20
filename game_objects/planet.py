@@ -6,19 +6,24 @@ import math
 
 
 class Planet(GameObject):
-    def __init__(self, x: int, y: int, radius: int):
+    def __init__(self, x: int, y: int, radius: int, human: Human):
         super().__init__(x, y)
         self.radius = radius
+        self.human = human
         self.gravity = G * (math.pi * self.radius * self.radius)
 
     def get_gravity(self, rocket: Rocket) -> float:
         return (self.gravity * mass_of_rocket) / pow(self.get_distance_to_rocket(rocket), 2)
 
     def get_human(self) -> Human:
-        pass
+        return self.human
 
     def get_human_angle_coordinate(self) -> float:
-        pass
+        human = self.human.get_coordinates()
+        center = self.get_coordinates()
+        dx = human[0] - center[0]
+        dy = human[1] - center[1]
+        return math.atan(dy / float(dx))
 
     def get_distance_to_rocket(self, rocket: Rocket) -> float:
         planet = self.get_coordinates()
