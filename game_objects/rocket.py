@@ -1,12 +1,12 @@
 import math
 from game_objects.game_object import GameObject
 from game_objects.planet import Planet
-from program_variables import boost_power, mass_of_rocket
+from program_variables import boost_power, mass_of_rocket, GLOBAL_HEIGHT, GLOBAL_WIDTH
 from process_logic import get_distance
 import math
 
-SCREEN_WIDTH = 1500
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = GLOBAL_WIDTH
+SCREEN_HEIGHT = GLOBAL_HEIGHT
 
 
 class Rocket(GameObject):

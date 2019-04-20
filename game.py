@@ -3,12 +3,13 @@ import pygame
 from game_objects.planet import Planet
 from game_objects.human import Human
 from game_objects.asteroid import Asteroid
+from program_variables import GLOBAL_WIDTH, GLOBAL_HEIGHT
 import time
 import copy
 
 GAME_NAME = 'Space ships'
-SCREEN_WIDTH = 1600
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = GLOBAL_WIDTH
+SCREEN_HEIGHT = GLOBAL_HEIGHT
 
 
 class Game:
@@ -28,7 +29,7 @@ class Game:
                   ]),
             Level((400, 40), (600, 450),
                   [
-                      Planet(736, 309, 100, Human(0.4, 736, 309, 100)),
+                      Planet(736, 309, 100, Human(1, 736, 309, 100)),
                       Planet(516, 608, 70, Human(2.3, 516, 608, 70)),
                       Planet(100, 100, 65, Human(3.2, 100, 100, 65)),
                   ],

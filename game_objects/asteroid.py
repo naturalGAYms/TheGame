@@ -1,7 +1,8 @@
 from game_objects.game_object import GameObject
+from program_variables import GLOBAL_WIDTH, GLOBAL_HEIGHT
 import random
-SCREEN_WIDTH = 1600
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = GLOBAL_WIDTH
+SCREEN_HEIGHT = GLOBAL_HEIGHT
 
 class Asteroid(GameObject):
     def __init__(self, x: int, y: int, id):
