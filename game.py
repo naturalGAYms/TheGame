@@ -90,7 +90,11 @@ class Game:
                 break
 
 
-if __name__ == '__main__':
+def main():
     game = Game()
     game.init_game()
     game.run()
+
+
+if __name__ == '__main__':
+    main()
