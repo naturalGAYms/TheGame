@@ -1,5 +1,6 @@
 from level import Level
 import pygame
+import sys
 from game_objects.planet import Planet
 from game_objects.human import Human
 from game_objects.asteroid import Asteroid
@@ -80,7 +81,10 @@ class Game:
         self.delay = 0
 
     def get_next_level(self):
-        self.current_level = self.levels[self.index]
+        try:
+            self.current_level = self.levels[self.index]
+        except:
+            sys.exit(0)
         self.index += 1
 
     def init_game(self):
