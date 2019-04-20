@@ -14,9 +14,9 @@ class Game:
         self.levels = [
             Level((30, 30), (300, 400),
                   [
-                      Planet(200, 200, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(200, 200, 60, Human(100, 100)),
+                      Planet(1000, 300, 50, Human(100, 100)),
+                      Planet(500, 600, 35, Human(100, 100)), ],
                   [
                       Asteroid(800, 400),
                       Asteroid(200, 100)

@@ -72,7 +72,8 @@ class Rocket(GameObject):
         :return:
         """
         if get_distance(self.get_coordinates()[0] + self.vx, self.get_coordinates()[1] + self.vy,
-                        closest_planet.get_coordinates()[0], closest_planet.get_coordinates()[1]) < closest_planet.radius:
+                        closest_planet.get_coordinates()[0],
+                        closest_planet.get_coordinates()[1]) < closest_planet.radius:
             dist = get_distance(self.get_coordinates()[0], self.get_coordinates()[1],
                                 closest_planet.get_coordinates()[0], closest_planet.get_coordinates()[1])
             cosx = (self.get_coordinates()[0] - closest_planet.get_coordinates()[0]) / dist

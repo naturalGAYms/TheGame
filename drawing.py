@@ -2,6 +2,7 @@ import pygame
 from random import randint
 
 import level
+import random
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -28,22 +29,21 @@ asteroid_pic = pygame.image.load('sprites/asteroid.png')
 def draw_items(_level, surface: pygame.display):
     surface.blit(background_image, (0, 0))
     surface.blit(blackhole_image, _level.hole.get_coordinates())
+    SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
     rocket_image_with_angle = rot_center(rocket_image, rocket_angle, rocket_coords)
+
     for planet in _level.planets:
-        planet_pic = rocket_pics[0]
-        planet_size_ratio = float(planet.radius) / float(planet_pic.get_rect().width)
-        planet_rect = planet_pic.get_rect()
-        scaled_size = get_scaled_size(planet_rect, planet_size_ratio)
-        new_pic = pygame.transform.scale(planet_pic, scaled_size)
-        planet_rect.move_ip(*planet.get_coordinates())
-        draw_at_center(surface, new_pic, planet_rect)
+        planet_pic = rocket_pics[planet.radius % len(rocket_pics)]
+        new_pic = pygame.transform.scale(planet_pic, (planet.radius * 2, planet.radius* 2))
+        surface.blit(new_pic, (planet.x - planet.radius, planet.y - planet.radius))
+
+        # draw_at_center(surface, new_pic, planet_rect)
     for asteroid in _level.asteroids:
         asteroid_rect = pygame.Rect(0, 0, *asteroid.get_coordinates())
         draw_asteroid_at_center(surface, asteroid_pic, asteroid_rect)
     surface.blit(*rocket_image_with_angle)
-    SingleColorBar(surface, 255, 0, 0, _level.rocket.fuel)
     pygame.display.flip()
 
 
@@ -60,14 +60,14 @@ def get_scaled_size(rect, ratio):
 
 
 def SingleColorBar(surface, color, x, y, value):
-    xx=0
+    xx = 0
     for hp in range(value):
-        pygame.draw.rect(surface, color, (x+xx, y, 1, 32), 0)
-        xx += value/1001
+        pygame.draw.rect(surface, color, (x + xx, y, 1, 32), 0)
+        xx += value / 1001
 
 
-def draw_at_center(surface, picture, rect):
-    surface.blit(picture,  (rect.left - picture.get_width() // 2, rect.top - picture.get_height() // 2))
+# def draw_at_center(surface, picture, rect):
+#     surface.blit(picture, (rect.left - picture.get_width() // 2, rect.top - picture.get_height() // 2))
 
 
 def draw_asteroid_at_center(surface, picture, rect):
