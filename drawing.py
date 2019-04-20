@@ -8,7 +8,7 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
 background_image = pygame.image.load('sprites/background.jpg')
-rocket_image = pygame.image.load('sprites/spaceship.png')
+rocket_image = pygame.image.load('sprites/spaceship0.png')
 
 
 def draw_items(_level, surface: pygame.display):
