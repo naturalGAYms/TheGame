@@ -1,10 +1,12 @@
 from game_objects.game_object import GameObject
 from game_objects.planet import Planet
 from program_variables import boost_power, mass_of_rocket
+from process_logic import get_distance
 import math
 
 SCREEN_WIDTH = 1500
 SCREEN_HEIGHT = 800
+
 
 class Rocket(GameObject):
     def __init__(self, x: int, y: int):
@@ -63,13 +65,18 @@ class Rocket(GameObject):
         self.x = new_x % SCREEN_WIDTH
         self.y = new_y % SCREEN_HEIGHT
 
-    def landing_on_planet(self, closest_planet: Planet):
+    def collision_with_planet(self, closest_planet: Planet):
         """
         Если ракета достаточно близко то вектор движения обнуляется
         :param closest_planet:
         :return:
         """
-        if closest_planet.get_distance_to_rocket(self) < closest_planet.radius + 1 and not self.on_planet:
-            self.vx = 0
-            self.vy = 0
-            self.on_planet = True
+        if get_distance(self.get_coordinates()[0] + self.vx, self.get_coordinates()[1] + self.vy,
+                        closest_planet.get_coordinates()[0], closest_planet.get_coordinates()[1]) < closest_planet.radius:
+            dist = get_distance(self.get_coordinates()[0], self.get_coordinates()[1],
+                                closest_planet.get_coordinates()[0], closest_planet.get_coordinates()[1])
+            cosx = (self.get_coordinates()[0] - closest_planet.get_coordinates()[0]) / dist
+            siny = (self.get_coordinates()[1] - closest_planet.get_coordinates()[1]) / dist
+            vector = math.sqrt(self.vx * self.vx + self.vy * self.vy)
+            self.vx += vector * cosx
+            self.vy += vector * siny

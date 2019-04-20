@@ -23,6 +23,7 @@ def run_logic(level):
             break
         level.rocket.vx += planet.get_gravity(level.rocket)[0] / 100
         level.rocket.vy += planet.get_gravity(level.rocket)[1] / 100
+        level.rocket.collision_with_planet(planet)
     level.rocket.move()
     for asteroid in level.asteroids:
         asteroid.on_tick()
@@ -41,3 +42,7 @@ def check_impact(x1, y1, x2, y2):
     distance_square = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
     radius_sum_square = 4 * IMPACT_RADIUS * IMPACT_RADIUS
     return distance_square <= radius_sum_square
+
+
+def get_distance(x1, y1, x2, y2):
+    return math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
