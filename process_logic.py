@@ -1,7 +1,16 @@
 import pygame
+import math
 from program_variables import boost_power, G, angle_delta
 
 IMPACT_RADIUS = 10
+
+def check_level_completion(level):
+    rocket_cords = level.rocket.get_coordinates()
+    hole_cords = level.hole.get_coordinates()
+    delta = abs(rocket_cords[0] - hole_cords[0]) + abs(rocket_cords[1] - hole_cords[1])
+    if delta < 20:
+        return True
+    return False
 
 
 def run_logic(level):
@@ -17,7 +26,8 @@ def run_logic(level):
         level.rocket.change_angle(angle_delta)
     if level.boost_active:
         level.rocket.enable_boost()
-    if check_impact(*level.rocket.get_coordinates(), *level.hole.get_coordinates()):
+
+    if check_level_completion(level):
         level.is_finished = True
 
 
