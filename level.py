@@ -16,6 +16,5 @@ class Level:
 
     def on_tick(self, surface: pygame.display, events):
         process_key_event(self, events)
-        self.rocket.move()
         run_logic(self)
         draw_items(self, surface)
