@@ -4,6 +4,7 @@ import sys
 from game_objects.planet import Planet
 from game_objects.human import Human
 from game_objects.asteroid import Asteroid
+import time
 
 GAME_NAME = 'Space ships'
 SCREEN_WIDTH = 1280
@@ -84,7 +85,10 @@ class Game:
         try:
             self.current_level = self.levels[self.index]
         except:
-            sys.exit(0)
+            _img = pygame.image.load(f'sprites/en.jpg')
+            self.surface.blit(pygame.transform.scale(_img, (SCREEN_WIDTH, SCREEN_HEIGHT)), (0, 0))
+            pygame.display.flip()
+            time.sleep(6)
         self.index += 1
 
     def init_game(self):
