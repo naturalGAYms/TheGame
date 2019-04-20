@@ -7,7 +7,7 @@ import math
 
 SCREEN_WIDTH = GLOBAL_WIDTH
 SCREEN_HEIGHT = GLOBAL_HEIGHT
-
+import pygame
 
 class Rocket(GameObject):
     def __init__(self, x: int, y: int):
@@ -86,6 +86,11 @@ class Rocket(GameObject):
         elif get_distance(self.get_coordinates()[0] + self.vx, self.get_coordinates()[1] + self.vy,
                         closest_planet.get_coordinates()[0],
                         closest_planet.get_coordinates()[1]) < closest_planet.radius and not self.valid_angle(closest_planet):
+            sound1 = pygame.mixer.Sound('sprites/expl.wav')
+            sound1.play()
+            # file = 'sprites/expl.mp3'
+            # pygame.mixer.music.load(file)
+            # pygame.mixer.music.play()
             self.alive = False
 
     def valid_angle(self, planet: Planet):

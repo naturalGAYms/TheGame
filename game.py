@@ -117,7 +117,6 @@ class Game:
                 break
             if not self.current_level.rocket.alive:
                 counter += 1
-                print(counter)
             if counter > 60:
                 counter = 0
                 self.restart_level()
