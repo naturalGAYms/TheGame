@@ -92,6 +92,10 @@ class Game:
 
     def init_game(self):
         pygame.init()
+        file = 'sprites/aud.mp3'
+        pygame.mixer.init()
+        pygame.mixer.music.load(file)
+        pygame.mixer.music.play()
         pygame.display.set_caption(GAME_NAME)
         pygame.mouse.set_visible(False)
 
