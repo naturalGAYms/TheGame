@@ -12,7 +12,7 @@ from process_logic import run_logic
 class Level:
     def __init__(self, start_coords: (int, int), finish_coords: (int, int)):
         self.rocket = Rocket(*start_coords)
-        self.planets = [Planet(40, 40, 1000, Human(1, 1))]
+        self.planets = []
         self.hole = Hole(*finish_coords)
         self.is_game_over = False
         self.is_completed = False
