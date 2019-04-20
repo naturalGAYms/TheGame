@@ -23,7 +23,10 @@ class Rocket(GameObject):
     def enable_boost(self):
         self.vx += self.boost_power * math.cos(self.angle)
         self.vy += self.boost_power * math.sin(self.angle)
-        self.on_planet = False
+        if self.on_planet:
+            self.on_planet = False
+            self.vx += 10 * self.boost_power * math.cos(self.angle)
+            self.vy += 10 * self.boost_power * math.sin(self.angle)
         # self.x += self.vx
         # self.y += self.vy
 
