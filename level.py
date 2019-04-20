@@ -2,6 +2,8 @@ import pygame
 
 from game_objects.rocket import Rocket
 from game_objects.hole import Hole
+from game_objects.planet import Planet
+from game_objects.human import Human
 from process_events import process_key_event
 from drawing import draw_items
 from process_logic import run_logic
