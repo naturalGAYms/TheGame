@@ -23,6 +23,9 @@ class Rocket(GameObject):
         # self.x += self.vx
         # self.y += self.vy
 
+    def return_angle(self):
+        return self.angle
+
     def move(self):
         self.x += self.vx
         self.y += self.vy
