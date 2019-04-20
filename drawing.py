@@ -19,7 +19,8 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p7.png'),
                pygame.image.load('sprites/p8.png'),
                pygame.image.load('sprites/p9.png'),
-               pygame.image.load('sprites/p10.png')]
+               pygame.image.load('sprites/p10.png')
+               ]
 blackhole_image = pygame.image.load('sprites/blackhole.png')
 
 
@@ -29,7 +30,6 @@ def draw_items(_level, surface: pygame.display):
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
     rocket_image_with_angle = rot_center(rocket_image, rocket_angle, rocket_coords)
-    surface.blit(*rocket_image_with_angle)
     for planet in _level.planets:
         planet_pic = rocket_pics[0]
         planet_size_ratio = float(planet.radius) / float(planet_pic.get_rect().width)
