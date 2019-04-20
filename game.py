@@ -11,7 +11,11 @@ SCREEN_HEIGHT = 800
 class Game:
     def __init__(self):
         self.levels = [
-            Level((0, 0), (300, 400), [Planet(100, 100, 50, Human(100, 100))]),
+            Level((0, 0), (300, 400), [
+                Planet(100, 100, 50, Human(100, 100)),
+                Planet(1000, 300, 200, Human(100, 100)),
+                Planet(500, 600, 100, Human(100, 100)),]
+                  ),
             Level((400, 40), (600, 600), []),
             Level((100, 400), (1000, 400), []),
             Level((800, 40), (400, 100), []),
