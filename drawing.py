@@ -20,6 +20,7 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
                pygame.image.load('sprites/p8.png'),
                pygame.image.load('sprites/p9.png'),
                pygame.image.load('sprites/p10.png')
+               ]
 blackhole_image = pygame.image.load('sprites/blackhole.png')
 
 def draw_items(_level, surface: pygame.display):
