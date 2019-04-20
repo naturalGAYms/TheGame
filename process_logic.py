@@ -28,14 +28,17 @@ def run_logic(level):
     for planet in level.planets:
         if planet.human and check_impact(*level.rocket.get_coordinates(), *planet.human.get_coordinates()):
             planet.get_human()
+            sound1 = pygame.mixer.Sound('sprites/hum.wav')
+            sound1.play()
             level.score -= 1
         level.rocket.vx += planet.get_gravity(level.rocket)[0] / 100
         level.rocket.vy += planet.get_gravity(level.rocket)[1] / 100
         level.rocket.collision_with_planet(planet)
 
     if check_level_completion(level):
+        sound1 = pygame.mixer.Sound('sprites/hum.wav')
+        sound1.play()
         level.is_completed = True
-
 
 def check_impact(x1, y1, x2, y2):
     distance_square = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
