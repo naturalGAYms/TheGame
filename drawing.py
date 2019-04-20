@@ -31,7 +31,10 @@ asteroid_pic_3 = pygame.image.load('sprites/as_3.png')
 
 def draw_items(_level, surface: pygame.display):
     surface.blit(background_image, (0, 0))
-    surface.blit(blackhole_image, _level.hole.get_coordinates())
+    label = pygame.font.SysFont("monospace", 30).render(str(_level.score), 1, (255, 255, 0))
+    surface.blit(label, (surface.get_width() - 60, 0))
+    if _level.score == 0:
+        surface.blit(blackhole_image, _level.hole.get_coordinates())
     SingleColorBar(surface, RED, 0, 0, _level.rocket.fuel)
     rocket_coords = _level.rocket.get_coordinates()
     rocket_angle = - _level.rocket.return_angle() * 57.32
@@ -41,13 +44,14 @@ def draw_items(_level, surface: pygame.display):
         planet_pic = rocket_pics[(planet.x + planet.y) % 10]
         new_pic = pygame.transform.scale(planet_pic, (planet.radius * 2, planet.radius * 2))
         surface.blit(new_pic, (planet.x - planet.radius, planet.y - planet.radius))
-        human_coords = planet.human.get_coordinates()
-        human_image = pygame.transform.scale(human_pic, (25, 25))
-        human_image = pygame.transform.rotate(human_image, planet.human.angle * 57.32)
-        rect = human_image.get_rect()
-        rect.move_ip(*human_coords)
-        rot_rect = human_image.get_rect(center=rect.center)
-        surface.blit(human_image, (rot_rect[0] - 12.5, rot_rect[1] - 12.5))
+        if planet.human:
+            human_coords = planet.human.get_coordinates()
+            human_image = pygame.transform.scale(human_pic, (25, 25))
+            human_image = pygame.transform.rotate(human_image, planet.human.angle * 57.32)
+            rect = human_image.get_rect()
+            rect.move_ip(*human_coords)
+            rot_rect = human_image.get_rect(center=rect.center)
+            surface.blit(human_image, (rot_rect[0] - 12.5, rot_rect[1] - 12.5))
         # pygame.draw.circle(surface, 255, planet.get_coordinates(), planet.radius, 12)
 
         # draw_at_center(surface, new_pic, planet_rect)

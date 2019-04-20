@@ -2,7 +2,7 @@ import pygame
 import math
 from program_variables import boost_power, G, angle_delta
 
-IMPACT_RADIUS = 0
+IMPACT_RADIUS = 50
 
 
 def check_level_completion(level):
@@ -10,7 +10,7 @@ def check_level_completion(level):
     hole_cords = level.hole.get_coordinates()
     delta = abs(rocket_cords[0] - hole_cords[0] - level.hole.shift_to_center) + abs(
         rocket_cords[1] - hole_cords[1] - level.hole.shift_to_center)
-    if delta < 80:
+    if delta < 80 and level.score == 0:
         return True
     return False
 
@@ -26,9 +26,9 @@ def run_logic(level):
     if level.boost_active:
         level.rocket.enable_boost()
     for planet in level.planets:
-        # if check_impact(*level.rocket.get_coordinates(), *planet.get_coordinates()):
-        #     # level.rocket.take_human(planet.get_human())aa
-        #     break
+        if planet.human and check_impact(*level.rocket.get_coordinates(), *planet.human.get_coordinates()):
+            planet.get_human()
+            level.score -= 1
         level.rocket.vx += planet.get_gravity(level.rocket)[0] / 100
         level.rocket.vy += planet.get_gravity(level.rocket)[1] / 100
         level.rocket.collision_with_planet(planet)

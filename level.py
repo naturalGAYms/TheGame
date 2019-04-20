@@ -9,6 +9,7 @@ from drawing import draw_items
 from process_logic import run_logic
 from game_objects.asteroid import Asteroid
 
+
 class Level:
     def __init__(self, start_coords: (int, int), finish_coords: (int, int), planets, asteraids):
         self.rocket = Rocket(*start_coords)
@@ -20,6 +21,7 @@ class Level:
         self.rotating_left = False
         self.rotating_right = False
         self.boost_active = False
+        self.score = len(planets)
 
     def on_tick(self, surface: pygame.display, events):
         process_key_event(self, events)
