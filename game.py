@@ -11,7 +11,7 @@ SCREEN_HEIGHT = 800
 class Game:
     def __init__(self):
         self.levels = [
-            Level((0, 0), (300, 400), [
+            Level((50, 50), (300, 400), [
                 Planet(100, 100, 120, Human(100, 100)),
                 Planet(1000, 300, 100, Human(100, 100)),
                 Planet(500, 600, 70, Human(100, 100)),]
@@ -45,10 +45,10 @@ class Game:
             self.clock.tick(60)
             if self.current_level.is_completed:
                 self.get_next_level()
-            rocket_cords = self.current_level.rocket.get_coordinates()
-            if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
-                1] > SCREEN_HEIGHT:
-                break
+            # rocket_cords = self.current_level.rocket.get_coordinates()
+            # if rocket_cords[0] < 0 or rocket_cords[1] > SCREEN_WIDTH or rocket_cords[1] < 0 or rocket_cords[
+            #     1] > SCREEN_HEIGHT:
+            #     break
             if self.current_level.is_game_over or self.index > 4:
                 break
 

@@ -3,6 +3,8 @@ from game_objects.planet import Planet
 from program_variables import boost_power, mass_of_rocket
 import math
 
+SCREEN_WIDTH = 1500
+SCREEN_HEIGHT = 800
 
 class Rocket(GameObject):
     def __init__(self, x: int, y: int):
@@ -39,8 +41,23 @@ class Rocket(GameObject):
         return self.angle
 
     def move(self):
-        self.x += self.vx
-        self.y += self.vy
+        new_x = self.x + self.vx
+        new_y = self.y + self.vy
+
+        # if new_x < 0:
+        #     new_x = SCREEN_WIDTH - new_x
+        # if new_y < 0:
+        #     new_y = SCREEN_HEIGHT - new_y
+        #
+        # if new_x > SCREEN_WIDTH:
+        #     new_x = new_x - SCREEN_WIDTH
+        # if new_y > SCREEN_HEIGHT:
+        #     new_y = new_y - SCREEN_HEIGHT
+        #
+        # print(new_x)
+        # print(new_y)
+        self.x = new_x % SCREEN_WIDTH
+        self.y = new_y % SCREEN_HEIGHT
 
     def landing_on_planet(self, closest_planet: Planet):
         """
