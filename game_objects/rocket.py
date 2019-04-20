@@ -47,8 +47,9 @@ class Rocket(GameObject):
         return self.angle
 
     def move(self):
-        new_x = self.x + self.vx
-        new_y = self.y + self.vy
+        if self.alive:
+            new_x = self.x + self.vx
+            new_y = self.y + self.vy
 
         # if new_x < 0:
         #     new_x = SCREEN_WIDTH - new_x
@@ -62,8 +63,8 @@ class Rocket(GameObject):
         #
         # print(new_x)
         # print(new_y)
-        self.x = new_x % SCREEN_WIDTH
-        self.y = new_y % SCREEN_HEIGHT
+            self.x = new_x % SCREEN_WIDTH
+            self.y = new_y % SCREEN_HEIGHT
 
     def collision_with_planet(self, closest_planet: Planet):
         """
@@ -71,9 +72,9 @@ class Rocket(GameObject):
         :param closest_planet:
         :return:
         """
-        if get_distance(self.get_coordinates()[0], self.get_coordinates()[1],
+        if get_distance(self.get_coordinates()[0] + self.vx, self.get_coordinates()[1] + self.vy,
                         closest_planet.get_coordinates()[0],
-                        closest_planet.get_coordinates()[1]) < closest_planet.radius:
+                        closest_planet.get_coordinates()[1]) < closest_planet.radius and self.valid_angle(closest_planet):
             dist = get_distance(self.get_coordinates()[0], self.get_coordinates()[1],
                                 closest_planet.get_coordinates()[0], closest_planet.get_coordinates()[1])
             cosx = (self.get_coordinates()[0] - closest_planet.get_coordinates()[0]) / dist
@@ -81,3 +82,15 @@ class Rocket(GameObject):
             vector = math.sqrt(self.vx * self.vx + self.vy * self.vy)
             self.vx += vector * cosx
             self.vy += vector * siny
+        elif get_distance(self.get_coordinates()[0] + self.vx, self.get_coordinates()[1] + self.vy,
+                        closest_planet.get_coordinates()[0],
+                        closest_planet.get_coordinates()[1]) < closest_planet.radius and not self.valid_angle(closest_planet):
+            self.alive = False
+
+    def valid_angle(self, planet: Planet):
+        dist = get_distance(self.get_coordinates()[0], self.get_coordinates()[1],
+                            planet.get_coordinates()[0], planet.get_coordinates()[1])
+        cosx = (self.get_coordinates()[0] - planet.get_coordinates()[0]) / dist
+        siny = (self.get_coordinates()[1] - planet.get_coordinates()[1]) / dist
+        arctan = math.atan(siny / cosx)
+        return abs(self.angle - arctan) < 0.8
