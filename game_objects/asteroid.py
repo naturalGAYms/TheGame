@@ -3,13 +3,14 @@ import random
 
 
 class Asteroid(GameObject):
-    def __init__(self, x: int, y: int):
+    def __init__(self, x: int, y: int, id):
         super().__init__(x, y)
         self.vx = random.randint(1, 5)
         self.vy = random.randint(1, 5)
         self.shift_x = 0
         self.shift_y = 0
         self.delay = 10
+        self.id = id
 
     def on_tick(self):
         if self.delay > 0:

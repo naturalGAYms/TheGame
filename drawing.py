@@ -25,6 +25,8 @@ rocket_pics = [pygame.image.load('sprites/p1.png'),
 blackhole_image = pygame.image.load('sprites/blackhole.png')
 asteroid_pic = pygame.image.load('sprites/asteroid.png')
 human_pic = pygame.image.load('sprites/chelik.png')
+asteroid_pic_2 = pygame.image.load('sprites/as_2.png')
+asteroid_pic_3 = pygame.image.load('sprites/as_3.png')
 
 
 def draw_items(_level, surface: pygame.display):
@@ -51,7 +53,12 @@ def draw_items(_level, surface: pygame.display):
         # draw_at_center(surface, new_pic, planet_rect)
     for asteroid in _level.asteroids:
         asteroid_rect = pygame.Rect(0, 0, *asteroid.get_coordinates())
-        draw_asteroid_at_center(surface, asteroid_pic, asteroid_rect)
+        if asteroid.id == 1:
+            draw_asteroid_at_center(surface, asteroid_pic, asteroid_rect)
+        if asteroid.id == 2:
+            draw_asteroid_at_center(surface, asteroid_pic_2, asteroid_rect)
+        if asteroid.id == 2:
+            draw_asteroid_at_center(surface, asteroid_pic_3, asteroid_rect)
 
     surface.blit(*rocket_image_with_angle)
     pygame.display.flip()
