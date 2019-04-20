@@ -15,7 +15,7 @@ class Game:
         self.levels = [
             Level((30, 30), (300, 400),
                   [
-                      Planet(200, 200, 60, Human(100, 100)),
+                      Planet(370, 200, 60, Human(100, 100)),
                       Planet(1000, 304, 50, Human(100, 100)),
                       Planet(500, 601, 35, Human(100, 100)),
                       Planet(407, 400, 35, Human(100, 100)),
@@ -29,10 +29,10 @@ class Game:
                   ]),
             Level((400, 40), (600, 450),
                   [
-                      Planet(347, 136, 80, Human(100, 100)),
-                      Planet(736, 309, 100, Human(100, 100)),
-                      Planet(516, 608, 70, Human(100, 100)),
-                      Planet(100, 100, 65, Human(100, 100)),
+                      Planet(500, 136, 37, Human(100, 100)),
+                      Planet(736, 309, 15, Human(100, 100)),
+                      Planet(516, 608, 20, Human(100, 100)),
+                      Planet(70, 70, 65, Human(100, 100)),
                       Planet(994, 490, 100, Human(100, 100)),
                       Planet(184, 443, 100, Human(100, 100)),
                       Planet(516, 608, 70, Human(100, 100))
@@ -58,8 +58,8 @@ class Game:
                   ]),
             Level((800, 40), (400, 200),
                   [
-                      Planet(100, 359, 120, Human(100, 100)),
-                      Planet(1000, 305, 100, Human(100, 100)),
+                      Planet(100, 359, 65, Human(100, 100)),
+                      Planet(1000, 305, 83, Human(100, 100)),
                       Planet(503, 600, 70, Human(100, 100)),
                       Planet(570, 312, 22, Human(100, 100)),
                       Planet(503, 861, 35, Human(100, 100)),
