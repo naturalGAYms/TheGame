@@ -31,6 +31,9 @@ ABOUT = ['Author:',
          "Natural   gay'ms",
          PYGAMEMENU_TEXT_NEWLINE,
          'Name:   Space   ships']
+HELP = ['Boost:    Spase',
+         'Left  rotation:    a',
+         'Right  rotation:    d']
 COLOR_BACKGROUND = (128, 0, 0)
 COLOR_BLACK = (0, 0, 0)
 COLOR_GRAY = (30, 30, 30)
@@ -117,6 +120,30 @@ about_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
 about_menu.add_option('Return to menu', PYGAME_MENU_BACK)
 
 # MAIN MENU
+help_menu= pygameMenu.TextMenu(surface,
+                                 bgfun=main_background,
+                                 color_selected=COLOR_WHITE,
+                                 font=pygameMenu.fonts.FONT_BEBAS,
+                                 font_color=COLOR_WHITE,
+                                 font_size_title=30,
+                                 font_title=pygameMenu.fonts.FONT_8BIT,
+                                 menu_color=COLOR_LIGHT_GRAY,
+                                 menu_color_title=COLOR_WHITE,
+                                 menu_height=int(WINDOW_SIZE[1] * 0.6),
+                                 menu_width=int(WINDOW_SIZE[0] * 0.6),
+                                 onclose=PYGAME_MENU_DISABLE_CLOSE,
+                                 option_shadow=False,
+                                 text_color=COLOR_WHITE,
+                                 text_fontsize=20,
+                                 title='Help',
+                                 window_height=WINDOW_SIZE[1],
+                                 window_width=WINDOW_SIZE[0]
+                                 )
+
+for m in HELP:
+    help_menu.add_line(m)
+help_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
+help_menu.add_option('Return to menu', PYGAME_MENU_BACK)
 main_menu = pygameMenu.Menu(surface,
                             bgfun=main_background,
                             color_selected=COLOR_WHITE,
@@ -136,6 +163,7 @@ main_menu = pygameMenu.Menu(surface,
 
 main_menu.add_option('Play', play_function)
 main_menu.add_option('About', about_menu)
+main_menu.add_option('Help', help_menu)
 main_menu.add_option('Quit', PYGAME_MENU_EXIT)
 
 # -----------------------------------------------------------------------------
