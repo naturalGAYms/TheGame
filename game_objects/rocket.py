@@ -24,8 +24,8 @@ class Rocket(GameObject):
         # self.y += self.vy
 
     def move(self):
-        self.x += self.vx * math.cos(self.angle)
-        self.y += self.vy * math.sin(self.angle)
+        self.x += self.vx
+        self.y += self.vy
 
     # def landing_on_planet(self, closest_planet: Planet):
     #     self.

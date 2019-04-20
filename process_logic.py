@@ -1,4 +1,5 @@
 import pygame
+from program_variables import boost_power, G, angle_delta
 
 IMPACT_RADIUS = 10
 
@@ -10,6 +11,10 @@ def run_logic(level):
             level.rocket.take_human(planet.get_human())
             break
     level.rocket.move()
+    if level.rotating_left:
+        level.rocket.change_angle(-angle_delta)
+    if level.rotating_right:
+        level.rocket.change_angle(angle_delta)
     if check_impact(*level.rocket.get_coordinates(), *level.hole.get_coordinates()):
         level.is_finished = True
 
