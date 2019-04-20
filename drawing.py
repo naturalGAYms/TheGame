@@ -67,4 +67,4 @@ def SingleColorBar(surface, color, x, y, value):
 
 
 def draw_at_center(surface, picture, rect):
-    surface.blit(picture,  (rect.left + rect.width - picture.get_width() // 2, rect.top + rect.height - picture.get_height() // 2))
+    surface.blit(picture,  (rect.left - picture.get_width() // 2, rect.top - picture.get_height() // 2))
