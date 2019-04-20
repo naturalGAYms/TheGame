@@ -15,47 +15,59 @@ class Game:
             Level((30, 30), (300, 400),
                   [
                       Planet(200, 200, 60, Human(100, 100)),
-                      Planet(1000, 300, 50, Human(100, 100)),
-                      Planet(500, 600, 35, Human(100, 100)), ],
+                      Planet(1000, 304, 50, Human(100, 100)),
+                      Planet(500, 601, 35, Human(100, 100)),
+                      Planet(407, 400, 35, Human(100, 100)),
+                      Planet(500, 177, 25, Human(100, 100)),
+                      Planet(100, 302, 17, Human(100, 100))],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(700, 350),
+                      Asteroid(110, 773)
                   ]),
-            Level((400, 40), (600, 600),
+            Level((400, 40), (600, 450),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(347, 136, 80, Human(100, 100)),
+                      Planet(736, 309, 100, Human(100, 100)),
+                      Planet(516, 608, 70, Human(100, 100)),
+                      Planet(100, 100, 65, Human(100, 100)),
+                      Planet(994, 490, 100, Human(100, 100)),
+                      Planet(184, 443, 100, Human(100, 100)),
+                      Planet(516, 608, 70, Human(100, 100))
+                  ],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
-            Level((100, 400), (1000, 400),
+            Level((100, 400), (650, 400),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(428, 951, 59, Human(100, 100)),
+                      Planet(99, 110, 37, Human(100, 100)),
+                      Planet(506, 601, 70, Human(100, 100)),
+                      Planet(600, 101, 87, Human(100, 100)),
+                      Planet(736, 309, 100, Human(100, 100))],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
-            Level((800, 40), (400, 100),
+            Level((800, 40), (400, 200),
                   [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
-                  [
-                      Asteroid(800, 400),
-                      Asteroid(200, 100)
-                  ]),
-            Level((10, 40), (1000, 300),
-                  [
-                      Planet(100, 100, 120, Human(100, 100)),
-                      Planet(1000, 300, 100, Human(100, 100)),
-                      Planet(500, 600, 70, Human(100, 100)), ],
+                      Planet(100, 359, 120, Human(100, 100)),
+                      Planet(1000, 305, 100, Human(100, 100)),
+                      Planet(503, 600, 70, Human(100, 100)),
+                      Planet(570, 312, 22, Human(100, 100)),
+                      Planet(503, 861, 35, Human(100, 100)),
+                  ],
                   [
                       Asteroid(800, 400),
-                      Asteroid(200, 100)
+                      Asteroid(200, 100),
+                      Asteroid(213, 123),
+                      Asteroid(132, 321)
                   ]),
         ]
         self.index = 0
