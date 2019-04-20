@@ -38,6 +38,7 @@ def draw_items(_level, surface: pygame.display):
         new_pic = pygame.transform.scale(planet_pic, scaled_size)
         planet_rect.move_ip(*planet.get_coordinates())
         surface.blit(new_pic, planet_rect)
+    surface.blit(*rocket_image_with_angle)
     pygame.display.flip()
 
 
