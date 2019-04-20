@@ -35,8 +35,8 @@ def draw_items(_level, surface: pygame.display):
     rocket_image_with_angle = rot_center(rocket_image, rocket_angle, rocket_coords)
 
     for planet in _level.planets:
-        planet_pic = rocket_pics[planet.radius % len(rocket_pics)]
-        new_pic = pygame.transform.scale(planet_pic, (planet.radius * 2, planet.radius* 2))
+        planet_pic = rocket_pics[planet.x % len(rocket_pics)]
+        new_pic = pygame.transform.scale(planet_pic, (planet.radius * 2, planet.radius * 2))
         surface.blit(new_pic, (planet.x - planet.radius, planet.y - planet.radius))
 
         # draw_at_center(surface, new_pic, planet_rect)
@@ -52,7 +52,7 @@ def rot_center(image, angle, rocket_coords):
     rect = image.get_rect()
     rect.move_ip(*rocket_coords)
     rot_rect = rot_image.get_rect(center=rect.center)
-    return rot_image, rot_rect
+    return rot_image, (rot_rect[0] - 35, rot_rect[1] - 7.5)
 
 
 def get_scaled_size(rect, ratio):
