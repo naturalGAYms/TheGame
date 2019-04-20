@@ -46,6 +46,7 @@ def draw_items(_level, surface: pygame.display):
         draw_asteroid_at_center(surface, asteroid_pic, asteroid_rect)
 
     surface.blit(*rocket_image_with_angle)
+    pygame.draw.circle(surface, 255, (int(_level.rocket.x), int(_level.rocket.y)), 6)
     pygame.display.flip()
 
 
