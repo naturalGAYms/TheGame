@@ -35,6 +35,6 @@ class Planet(GameObject):
         human = self.human.get_coordinates()
         rocket = rocket.get_coordinates()
         distance = math.sqrt((human[0] - rocket[0]) * (human[0] - rocket[0]) +
-                         (human[1] - rocket[1]) * (human[1] - rocket[1]))
+                             (human[1] - rocket[1]) * (human[1] - rocket[1]))
         if distance < 5:
             self.human = False
