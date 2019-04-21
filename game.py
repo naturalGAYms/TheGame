@@ -81,6 +81,8 @@ class Game:
             pygame.display.flip()
             time.sleep(6)
         self.index += 1
+        if self.index == len(self.levels):
+            self.current_level.is_last = True
 
     def restart_level(self):
         self.index -= 1

@@ -23,6 +23,7 @@ class Level:
         self.rotating_right = False
         self.boost_active = False
         self.score = len(planets)
+        self.is_last = False
 
     def on_tick(self, surface: pygame.display, events, game):
         process_key_event(self, events, game)
