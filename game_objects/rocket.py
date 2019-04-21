@@ -21,7 +21,7 @@ class Rocket(GameObject):
         self.mass = mass_of_rocket
         self.vx = 0
         self.vy = 0
-        self.fuel = 1010
+        self.fuel = 1000
 
     def change_angle(self, delt_angle: float):
         self.angle += delt_angle

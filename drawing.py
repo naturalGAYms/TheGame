@@ -81,11 +81,36 @@ def get_scaled_size(rect, ratio):
     return int(rect.height * ratio), int(rect.width * ratio)
 
 
+from program_variables import GLOBAL_HEIGHT, GLOBAL_WIDTH
+
+
+def get_color(xx):
+    max = 1
+
+    fromR = 255
+    fromG = 0
+    fromB = 0
+
+    toR = 0
+    toG = 255
+    toB = 0
+
+    deltaR = round((toR - fromR) / max)
+    deltaG = round((toG - fromG) / max)
+    deltaB = round((toB - fromB) / max)
+    R = fromR + xx * deltaR
+    G = fromG + xx * deltaG
+    B = fromB + xx * deltaB
+
+    return (R, G, B)
+
+
 def SingleColorBar(surface, color, x, y, value):
-    xx = 0
-    for hp in range(value):
-        pygame.draw.rect(surface, color, (x + xx, y, 1, 32), 0)
-        xx += value / 10000
+    xx = value / 1000
+    try:
+        pygame.draw.rect(surface, get_color(xx), (x, y, xx * GLOBAL_WIDTH, 32), 0)
+    except:
+        pass
 
 
 # def draw_at_center(surface, picture, rect):
